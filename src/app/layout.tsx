@@ -21,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={cx(GeistSans.className)}>
         {children}
+        {/*
         <Navbar />
+        */}
       </body>
     </html>
   )
