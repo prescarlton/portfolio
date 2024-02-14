@@ -1,4 +1,3 @@
-import Navbar from "@/components/navbar"
 import cx from "classnames"
 import dayjs from "dayjs"
 import relativeTime from "dayjs/plugin/relativeTime"
@@ -19,12 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cx(GeistSans.className)}>
-        {children}
-        {/*
-        <Navbar />
-        */}
-      </body>
+      <body className={cx(GeistSans.className)}>{children}</body>
     </html>
   )
 }
