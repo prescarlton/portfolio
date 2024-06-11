@@ -3,7 +3,7 @@ import dayjs from "dayjs"
 
 export default function Page() {
   // lmao calculate years of experience
-  const yoe = dayjs("2018-02-01").fromNow(true)
+  const yoe = dayjs("2019-02-01").fromNow(true)
 
   return (
     <section>

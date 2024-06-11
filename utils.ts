@@ -11,8 +11,11 @@ type Metadata = {
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/
   let match = frontmatterRegex.exec(fileContent)
-  let frontMatterBlock = match![1]
   let content = fileContent.replace(frontmatterRegex, "").trim()
+  if (!match) {
+    return { content }
+  }
+  let frontMatterBlock = match![1]
   let frontMatterLines = frontMatterBlock.trim().split("\n")
   let metadata: Partial<Metadata> = {}
 
@@ -26,16 +29,16 @@ function parseFrontmatter(fileContent: string) {
   return { metadata: metadata as Metadata, content }
 }
 
-function getMDXFiles(dir) {
+function getMDXFiles(dir: string) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx")
 }
 
-export function readMDXFile(filePath) {
+export function readMDXFile(filePath: string) {
   let rawContent = fs.readFileSync(filePath, "utf-8")
   return parseFrontmatter(rawContent)
 }
 
-function getMDXData(dir) {
+function getMDXData(dir: string) {
   let mdxFiles = getMDXFiles(dir)
   return mdxFiles.map((file) => {
     let { metadata, content } = readMDXFile(path.join(dir, file))
@@ -51,11 +54,6 @@ function getMDXData(dir) {
 
 export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), "app", "blog", "posts"))
-}
-
-export function getResumeData() {
-  let rawContent = fs.readFileSync("app/resume/content.mdx", "utf-8")
-  return rawContent.trim()
 }
 
 export function formatDate(date: string, includeRelative = false) {

@@ -1,8 +1,14 @@
+import { CustomMDX } from "app/components/mdx"
+import { readMDXFile } from "utils"
+
 export default function Page() {
+  const { content } = readMDXFile("app/projects/content.mdx")
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">projects</h1>
-      <p>{`Doesn't look like much yet, but pretty soon you'll see a list of my projects here.`}</p>
+      <article className="markdown max-w-4xl">
+        <CustomMDX source={content} />
+      </article>
     </section>
   )
 }

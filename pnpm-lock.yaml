@@ -47,9 +47,6 @@ dependencies:
   sugar-high:
     specifier: ^0.6.0
     version: 0.6.0
-  tailwindcss:
-    specifier: 4.0.0-alpha.13
-    version: 4.0.0-alpha.13
   typescript:
     specifier: 5.3.3
     version: 5.3.3
@@ -58,6 +55,9 @@ devDependencies:
   prettier:
     specifier: ^3.3.2
     version: 3.3.2
+  tailwindcss:
+    specifier: 4.0.0-alpha.13
+    version: 4.0.0-alpha.13
 
 packages:
 
@@ -1467,7 +1467,6 @@ packages:
 
   /tailwindcss@4.0.0-alpha.13:
     resolution: {integrity: sha512-YbLm8I10/bsGr7zrUNxn4Soj9Lc71anTWu/ulgry64rbBU4m0vov539+caeifAiKhsef2NUCW1twaqH3NfJd2Q==}
-    dev: false
 
   /trim-lines@3.0.1:
     resolution: {integrity: sha512-kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==}
