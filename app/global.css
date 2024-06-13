@@ -104,7 +104,7 @@ html {
 }
 
 .markdown h4 {
-  @apply text-lg font-medium tracking-tight mt-6 mb-2;
+  @apply text-lg font-medium tracking-tight mb-2;
 }
 
 .markdown strong {
@@ -119,10 +119,14 @@ html {
   @apply list-decimal pl-6;
 }
 
+.markdown hr {
+  @apply border-neutral-200 dark:border-neutral-700 my-6;
+}
+
 .markdown> :first-child {
   /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
-  margin-bottom: 1.25em !important;
+  /* margin-bottom: 1.25em !important; */
 }
 
 pre::-webkit-scrollbar {

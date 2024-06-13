@@ -7,9 +7,11 @@ export default function Page() {
 
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        hey, I'm Preston
-      </h1>
+      <div className="flex gap-2 items-center mb-8">
+        <h1 className=" text-2xl font-semibold tracking-tighter">
+          hey, I'm Preston
+        </h1>
+      </div>
       <p className="mb-4">{`I'm a software engineer with around ${yoe} of experience. I've worked on all kinds of different things, from aquarium kiosks to e-learning platforms to government health websites. When I'm not busy coding another SAAS I'll never launch, I spend most of my time hiking, backpacking, and camping. Sometimes I dabble in photography.`}</p>
       <div className="my-8">
         <BlogPosts />

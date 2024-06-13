@@ -7,6 +7,9 @@ type Metadata = {
   summary: string
   image?: string
 }
+type ParsingOptions = {
+  parseFrontmatter?: boolean
+}
 
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/
@@ -33,8 +36,14 @@ function getMDXFiles(dir: string) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx")
 }
 
-export function readMDXFile(filePath: string) {
+export function readMDXFile(
+  filePath: string,
+  options: ParsingOptions = { parseFrontmatter: true },
+) {
   let rawContent = fs.readFileSync(filePath, "utf-8")
+  if (!options.parseFrontmatter) {
+    return { content: rawContent.trim() }
+  }
   return parseFrontmatter(rawContent)
 }
 

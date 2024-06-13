@@ -6,6 +6,9 @@ export function BlogPosts() {
 
   return (
     <div>
+      {allBlogs.length === 0 && (
+        <p>{`I haven't made any posts yet, but just you wait.`}</p>
+      )}
       {allBlogs
         .sort((a, b) => {
           if (
