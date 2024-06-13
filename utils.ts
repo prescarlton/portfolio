@@ -16,7 +16,7 @@ function parseFrontmatter(fileContent: string) {
   let match = frontmatterRegex.exec(fileContent)
   let content = fileContent.replace(frontmatterRegex, "").trim()
   if (!match) {
-    return { content }
+    return { content, metadata: {} }
   }
   let frontMatterBlock = match![1]
   let frontMatterLines = frontMatterBlock.trim().split("\n")
@@ -50,7 +50,10 @@ export function readMDXFile(
 function getMDXData(dir: string) {
   let mdxFiles = getMDXFiles(dir)
   return mdxFiles.map((file) => {
-    let { metadata, content } = readMDXFile(path.join(dir, file))
+    let { metadata, content } = readMDXFile(path.join(dir, file)) as {
+      metadata: Metadata
+      content: string
+    }
     let slug = path.basename(file, path.extname(file))
 
     return {

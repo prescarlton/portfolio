@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 
 export function generateMetadata({ params }) {
   let post = getBlogPosts().find((post) => post.slug === params.slug)
-  if (!post) {
+  if (!post?.metadata) {
     return
   }
 
@@ -54,7 +54,7 @@ export function generateMetadata({ params }) {
 export default function Blog({ params }) {
   let post = getBlogPosts().find((post) => post.slug === params.slug)
 
-  if (!post) {
+  if (!post?.metadata) {
     notFound()
   }
 
